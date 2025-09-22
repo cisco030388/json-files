@@ -5,29 +5,59 @@
       "listen": "::",  // 监听所有的IP地址（IPv6格式）
       "protocol": "socks",  // 使用 SOCKS5 协议
       "settings": {
-        "auth": "password",  // 启用用户名和密码认证
-        "accounts": [
-          {
-            "user": "xukun",  // 用户名
-            "pass": "xukun@0303"  // 密码
-          }
-        ],
+        "auth": "noauth",  // 不需要认证
         "udp": true  // 允许 UDP 流量
       }
     }
   ],
   "outbounds": [
     {
-      "protocol": "socks",  // 使用 SOCKS5 协议
+      "protocol": "vmess",  // 使用 vmess 协议
       "settings": {
-        "servers": [
+        "vnext": [
           {
-            "address": "tunnel-21-ipv6.dnsv1.cc",  // 服务器地址
-            "port": 31818  // 服务器端口
+            "address": "36.156.187.203",  // 服务器地址
+            "port": 26464,  // 服务器端口
+            "users": [
+              {
+                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518",  // 用户ID
+                "alterId": 0,  // 额外的ID
+                "security": "auto",  // 加密方式
+                "network": "tcp",  // 传输协议
+                "transport": {
+                  "type": "none"  // 无伪装
+                },
+                "tls": false  // 不使用TLS加密
+              }
+            ]
           }
         ]
       },
-      "tag": "S5-2倍率-ipv6"  // 设置标签，方便路由选择
+      "tag": "香港-IPV4-默认使用这个"  // 设置标签，便于路由选择
+    },
+    {
+      "protocol": "vmess",  // 使用 vmess 协议
+      "settings": {
+        "vnext": [
+          {
+            "address": "tunnel-21-ipv6.dnsv1.cc",  // 服务器地址
+            "port": 26464,  // 服务器端口
+            "users": [
+              {
+                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518",  // 用户ID
+                "alterId": 0,  // 额外的ID
+                "security": "auto",  // 加密方式
+                "network": "tcp",  // 传输协议
+                "transport": {
+                  "type": "none"  // 无伪装
+                },
+                "tls": false  // 不使用TLS加密
+              }
+            ]
+          }
+        ]
+      },
+      "tag": "tunnel-21-ipv6"  // 设置标签，便于路由选择
     }
   ]
 }
