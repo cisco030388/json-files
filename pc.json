@@ -84,7 +84,7 @@
           }
         ]
       },
-      "tag": "新服务器-IPV6"
+      "tag": "备用线路-IPV6"
     },
     {
       "protocol": "freedom",
@@ -116,7 +116,7 @@
       {
         "type": "field",
         "domain": ["geosite:geolocation-!cn"],
-        "outboundTag": "新服务器-IPV6"
+        "outboundTag": "备用线路-IPV6"
       },
       {
         "type": "field",
@@ -126,7 +126,7 @@
       {
         "type": "field",
         "ip": ["0.0.0.0/0", "::/0"],
-        "outboundTag": "新服务器-IPV6"
+        "outboundTag": "备用线路-IPV6"
       }
     ]
   },
@@ -139,3 +139,4 @@
     ]
   }
 }
+
