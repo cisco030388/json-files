@@ -16,24 +16,24 @@
       "settings": {
         "vnext": [
           {
-            "address": "36.156.187.203",  // 服务器地址
+            "address": "tunnel-21-ipv6.dnsv1.cc",  // 服务器地址
             "port": 26464,  // 服务器端口
             "users": [
               {
                 "id": "f4ebb7e7-a855-452f-d5aa-e66162105518",  // 用户ID
                 "alterId": 0,  // 额外的ID
                 "security": "auto",  // 加密方式
-                "network": "tcp",  // 传输协议
+                "network": "tcp",  // 传输协议（tcp）
                 "transport": {
-                  "type": "none"  // 无伪装
+                  "type": "none"  // 不使用伪装
                 },
-                "tls": false  // 不使用TLS加密
+                "tls": false  // 不使用 TLS 加密
               }
             ]
           }
         ]
       },
-      "tag": "香港-IPV4-默认使用这个"  // 设置标签，便于路由选择
+      "tag": "tunnel-21-ipv6"  // 设置标签，方便路由选择
     }
   ]
 }
