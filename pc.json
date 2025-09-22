@@ -5,7 +5,13 @@
       "listen": "::",  // 监听所有的IP地址（IPv6格式）
       "protocol": "socks",  // 使用 SOCKS5 协议
       "settings": {
-        "auth": "noauth",  // 不需要认证
+        "auth": "password",  // 启用用户名和密码认证
+        "accounts": [
+          {
+            "user": "xukun",  // 用户名
+            "pass": "xukun@0303"  // 密码
+          }
+        ],
         "udp": true  // 允许 UDP 流量
       }
     }
@@ -17,13 +23,7 @@
         "servers": [
           {
             "address": "tunnel-21-ipv6.dnsv1.cc",  // 服务器地址
-            "port": 31818,  // 服务器端口
-            "users": [
-              {
-                "user": "xukun",  // 用户名
-                "pass": "xukun@0303"  // 密码
-              }
-            ]
+            "port": 31818  // 服务器端口
           }
         ]
       },
