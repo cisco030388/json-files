@@ -19,30 +19,6 @@
       "settings": {
         "vnext": [
           {
-            "address": "tunnel-21-ipv6.dnsv1.cc",  // 服务器地址
-            "port": 26464,                          // 端口
-            "users": [
-              {
-                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518",  // 用户ID (UUID)
-                "alterId": 0,                                  // 额外ID
-                "security": "auto",                             // 加密方式
-                "network": "tcp",                               // 传输协议
-                "transport": {
-                  "type": "none"                                // 底层传输方式
-                },
-                "tls": false                                    // TLS关闭
-              }
-            ]
-          }
-        ]
-      },
-      "tag": "香港（路由器需要开启IPV6）"
-    },
-    {
-      "protocol": "vmess",
-      "settings": {
-        "vnext": [
-          {
             "address": "36.156.187.203",  // 新服务器地址
             "port": 26464,                 // 端口
             "users": [
@@ -61,6 +37,30 @@
         ]
       },
       "tag": "香港-IPV4-默认使用这个"
+    },
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "tunnel-21-ipv6.dnsv1.cc",  // 服务器地址
+            "port": 26464,                          // 端口
+            "users": [
+              {
+                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518",  // 用户ID (UUID)
+                "alterId": 0,                                  // 额外ID
+                "security": "auto",                             // 加密方式
+                "network": "tcp",                               // 传输协议
+                "transport": {
+                  "type": "none"                                // 底层传输方式
+                },
+                "tls": false                                    // TLS关闭
+              }
+            ]
+          }
+        ]
+      },
+      "tag": "香港（路由器需要开启IPV6）"
     },
     {
       "protocol": "vmess",
