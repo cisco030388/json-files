@@ -1,0 +1,117 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 1080,
+      "listen": "::",  
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "tunnel-21-ipv6.dnsv1.cc",  // 服务器地址
+            "port": 26464,                          // 端口
+            "users": [
+              {
+                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518",  // 用户ID (UUID)
+                "alterId": 0,                                  // 额外ID
+                "security": "auto",                             // 加密方式
+                "network": "tcp",                               // 传输协议
+                "transport": {
+                  "type": "none"                                // 底层传输方式
+                },
+                "tls": false                                    // TLS关闭
+              }
+            ]
+          }
+        ]
+      },
+      "tag": "香港（路由器需要开启IPV6）"
+    },
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "36.156.187.203",  // 新服务器地址
+            "port": 26464,                 // 端口
+            "users": [
+              {
+                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518",  // 用户ID (UUID)
+                "alterId": 0,                                  // 额外ID
+                "security": "auto",                             // 加密方式
+                "network": "tcp",                               // 传输协议
+                "transport": {
+                  "type": "none"                                // 底层传输方式
+                },
+                "tls": false                                    // TLS关闭
+              }
+            ]
+          }
+        ]
+      },
+      "tag": "香港-IPV4-默认使用这个"
+    },
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "blocked"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "type": "field",
+        "domain": ["geosite:cn"],
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "ip": ["geoip:cn"],
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "domain": ["geosite:geolocation-!cn"],
+        "outboundTag": "香港（路由器需要开启IPV6）"
+      },
+      {
+        "type": "field",
+        "domain": ["geosite:geolocation-!cn"],
+        "outboundTag": "新服务器"
+      },
+      {
+        "type": "field",
+        "ip": ["0.0.0.0/0", "::/0"],
+        "outboundTag": "香港（路由器需要开启IPV6）"
+      },
+      {
+        "type": "field",
+        "ip": ["0.0.0.0/0", "::/0"],
+        "outboundTag": "新服务器"
+      }
+    ]
+  },
+  "dns": {
+    "servers": [
+      "8.8.8.8",
+      "8.8.4.4",
+      "2001:4860:4860::8888",
+      "2001:4860:4860::8844"
+    ]
+  }
+}
