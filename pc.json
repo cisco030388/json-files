@@ -5,7 +5,7 @@
   "inbounds": [
     {
       "port": 1080,
-      "listen": "::",
+      "listen": "::",  
       "protocol": "socks",
       "settings": {
         "auth": "noauth",
@@ -19,20 +19,42 @@
       "settings": {
         "vnext": [
           {
-            "address": "tunnel-21-ipv6.dnsv1.cc",  // 服务器1 地址
-            "port": 15672,
+            "address": "tunnel-2052-ipv6.666888.biz",  // 新服务器地址
+            "port": 15672,                             // 端口
             "users": [
               {
-                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518", 
-                "alterId": 0,
-                "security": "auto",
-                "network": "tcp",
+                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518",  // 用户ID (UUID)
+                "alterId": 0,                                  // 额外ID
+                "security": "auto",                             // 加密方式
+                "network": "tcp",                               // 传输协议
                 "transport": {
-                  "type": "none"
+                  "type": "none"                                // 底层传输方式
                 },
-                "tls": true,
-                "host": ["http://yourdomain.com"],  // 伪装域名
-                "path": "/yourpath"                 // 路径
+                "tls": false                                    // TLS关闭
+              }
+            ]
+          }
+        ]
+      },
+      "tag": "新服务器-IPV6"
+    },
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "tunnel-21-ipv6.dnsv1.cc",  // 服务器地址
+            "port": 26464,                          // 端口
+            "users": [
+              {
+                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518",  // 用户ID (UUID)
+                "alterId": 0,                                  // 额外ID
+                "security": "auto",                             // 加密方式
+                "network": "tcp",                               // 传输协议
+                "transport": {
+                  "type": "none"                                // 底层传输方式
+                },
+                "tls": false                                    // TLS关闭
               }
             ]
           }
@@ -45,52 +67,24 @@
       "settings": {
         "vnext": [
           {
-            "address": "36.156.187.203",  // 服务器2 地址
-            "port": 15672,
+            "address": "36.156.187.203",  // 新服务器地址
+            "port": 26464,                 // 端口
             "users": [
               {
-                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518", 
-                "alterId": 0,
-                "security": "auto",
-                "network": "tcp",
+                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518",  // 用户ID (UUID)
+                "alterId": 0,                                  // 额外ID
+                "security": "auto",                             // 加密方式
+                "network": "tcp",                               // 传输协议
                 "transport": {
-                  "type": "none"
+                  "type": "none"                                // 底层传输方式
                 },
-                "tls": true,
-                "host": ["http://yourdomain.com"],  // 伪装域名
-                "path": "/yourpath"                 // 路径
+                "tls": false                                    // TLS关闭
               }
             ]
           }
         ]
       },
       "tag": "香港-IPV4-默认使用这个"
-    },
-    {
-      "protocol": "vmess",
-      "settings": {
-        "vnext": [
-          {
-            "address": "tunnel-2052-ipv6.666888.biz",  // 服务器3 地址
-            "port": 15672,
-            "users": [
-              {
-                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518", 
-                "alterId": 0,
-                "security": "auto",
-                "network": "tcp",
-                "transport": {
-                  "type": "none"
-                },
-                "tls": true,
-                "host": ["http://newdomain.com"],  // 新伪装域名
-                "path": "/newpath"                 // 新路径
-              }
-            ]
-          }
-        ]
-      },
-      "tag": "新服务器"
     },
     {
       "protocol": "freedom",
@@ -121,18 +115,18 @@
       },
       {
         "type": "field",
+        "domain": ["geosite:geolocation-!cn"],
+        "outboundTag": "新服务器-IPV6"
+      },
+      {
+        "type": "field",
         "ip": ["0.0.0.0/0", "::/0"],
         "outboundTag": "香港（路由器需要开启IPV6）"
       },
       {
         "type": "field",
-        "domain": ["geosite:geolocation-!cn"],
-        "outboundTag": "香港-IPV4-默认使用这个"
-      },
-      {
-        "type": "field",
-        "ip": ["geoip:!cn"],
-        "outboundTag": "新服务器"
+        "ip": ["0.0.0.0/0", "::/0"],
+        "outboundTag": "新服务器-IPV6"
       }
     ]
   },
