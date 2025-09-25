@@ -40,7 +40,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "tunnel-21-ipv6.dnsv1.cc",  // 服务器地址
+            "address": "21-ipv6-250925.dnsv1.cc",  // 服务器地址
             "port": 26464,  // 服务器端口
             "users": [
               {
@@ -61,3 +61,4 @@
     }
   ]
 }
+
