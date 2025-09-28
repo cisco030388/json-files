@@ -82,6 +82,30 @@
         ]
       },
       "tag": "3.香港-IPV6-备用"  // 设置标签，便于路由选择
+    },
+{
+      "protocol": "vmess",  // 使用 vmess 协议
+      "settings": {
+        "vnext": [
+          {
+            "address": "n1-ipv6-250925.dnsv1.cc",  // 服务器地址
+            "port": 35051,  // 服务器端口
+            "users": [
+              {
+                "id": "f4ebb7e7-a855-452f-d5aa-e66162105518",  // 用户ID
+                "alterId": 0,  // 额外的ID
+                "security": "auto",  // 加密方式
+                "network": "tcp",  // 传输协议
+                "transport": {
+                  "type": "none"  // 无伪装
+                },
+                "tls": false  // 不使用TLS加密
+              }
+            ]
+          }
+        ]
+      },
+      "tag": "4.香港-IPV6-X10"  // 设置标签，便于路由选择
     }
   ]
 }
