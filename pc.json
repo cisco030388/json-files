@@ -16,7 +16,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "36.156.187.203",
+            "address": "21-ct-250917.dnsv1.cc",
             "port": 36885,
             "users": [
               {
@@ -59,3 +59,4 @@
     }
   ]
 }
+
